@@ -53,13 +53,7 @@ app.post("/compose", function(req, res){
     title: req.body.postTitle,
     content: req.body.postBody
   });
-  post.save(function(err){
-    if(!err){
-      res.redirect("/");
-    }
-  });
-});
-
+post.save();
 app.get("/posts/:postName", function(req, res){
   const requestedTitle = _.lowerCase(req.params.postName);
 
