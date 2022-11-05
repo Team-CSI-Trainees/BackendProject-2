@@ -60,17 +60,15 @@ app.post("/compose", function(req, res){
   });
 });
 
-app.get("/posts/:postName", function(req, res){
-  const requestedTitle = _.lowerCase(req.params.postName);
-
-Post.findOne({_id:requestedTitle},function(err,post){
+app.get("/posts/:postId", function(req, res){
+  const requestedPostId = req.params.postId;
+Post.findOne({_id:requestedPostId},function(err,post){
   res.render("post",{
     title:post.title,
     content:post.content
   });
 });
   });
-
 
 
 app.listen(3000, function() {
