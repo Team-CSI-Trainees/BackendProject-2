@@ -17,7 +17,7 @@ app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
-mongoose.connect("mongodb://localhost:27017/blogDB",{useNewUrlParser:true});
+mongoose.connect("mongodb+srv://root:root@cluster0.9hz8k19.mongodb.net/blogDB",{useNewUrlParser:true});
 
 const postSchema={
   title:String,
@@ -56,7 +56,7 @@ app.post("/compose", function(req, res){
   });
   post.save(function(err){
     if(!err){
-      res.redirect("/");
+      res.redirect("/");+
     }
   });
 });
